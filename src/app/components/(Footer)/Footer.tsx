@@ -12,11 +12,13 @@ import {
 import Link from "next/link";
 
 export default function Footer() {
+  const getActualYear = new Date().getFullYear();
+
   return (
     <footer className="bg-yellow-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
       <div className="max-w-7xl mx-auto px-4 py-12 flex flex-col gap-4">
         <h3 className="text-3xl text-center font-bold text-yellow-600 dark:text-yellow-400">
-            #VemProSalsero
+          #VemProSalsero
         </h3>
         <Separator />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -139,7 +141,7 @@ export default function Footer() {
         <div className="border-t border-yellow-300 dark:border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              © 2024 Salserin. Todos os direitos reservados.
+              © {getActualYear} Salserin. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 text-sm text-gray-600 dark:text-gray-400">
               <a
