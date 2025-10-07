@@ -88,11 +88,8 @@ export function NavigationMenuHeader() {
           alt="Salserin Logo"
           width={40}
           height={40}
-          className="rounded-full"
+          className="rounded-full hover:scale-105 transition-all duration-300"
         />
-        <span className="text-gray-900 dark:text-yellow-400 text-xl font-bold transition-colors">
-          Salserin
-        </span>
       </Link>
 
       {/* Navigation Menu */}
