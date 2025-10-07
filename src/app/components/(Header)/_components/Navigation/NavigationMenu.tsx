@@ -90,32 +90,37 @@ export function NavigationMenuHeader() {
           height={40}
           className="rounded-full"
         />
+        <span className="text-gray-900 dark:text-yellow-400 text-xl font-bold transition-colors">
+          Salserin
+        </span>
       </Link>
 
       {/* Navigation Menu */}
       <NavigationMenu className="hidden md:flex">
         <NavigationMenuList className="space-x-2">
           {/* Home */}
-          <NavigationMenuItem>
+          <NavigationMenuItem className="flex items-center">
             <NavigationMenuLink
               asChild
-              className={`${navigationMenuTriggerStyle()} bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors`}
+              className={`${navigationMenuTriggerStyle()} bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors`}
             >
               <Link href="/" className="flex items-center space-x-2">
-                <Home className="w-4 h-4" />
-                <span>Home</span>
+                <span className="flex items-center gap-2">
+                  <Home className="w-4 h-4 text-gray-900 dark:text-white" />
+                  Home
+                </span>
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
 
           {/* Cardápio */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 data-[active]:bg-gray-800 data-[state=open]:bg-gray-800 transition-colors">
+            <NavigationMenuTrigger className="bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 data-[active]:bg-gray-100 dark:data-[active]:bg-gray-800 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 transition-colors">
               <UtensilsCrossed className="w-4 h-4 mr-2" />
               Cardápio
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-gray-900 border border-gray-800">
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
                 {cardapioItems.map((item) => (
                   <ListItem
                     key={item.title}
@@ -131,12 +136,12 @@ export function NavigationMenuHeader() {
 
           {/* Eventos */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 data-[active]:bg-gray-800 data-[state=open]:bg-gray-800 transition-colors">
+            <NavigationMenuTrigger className="bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 data-[active]:bg-gray-100 dark:data-[active]:bg-gray-800 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 transition-colors">
               <Calendar className="w-4 h-4 mr-2" />
               Eventos
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2 bg-gray-900 border border-gray-800">
+              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link
@@ -144,10 +149,10 @@ export function NavigationMenuHeader() {
                       href="/eventos"
                     >
                       <Calendar className="h-6 w-6 text-yellow-400" />
-                      <div className="mb-2 mt-4 text-lg font-medium text-white">
+                      <div className="mb-2 mt-4 text-lg font-medium text-gray-900 dark:text-white">
                         Eventos Salserin
                       </div>
-                      <p className="text-sm leading-tight text-gray-300">
+                      <p className="text-sm leading-tight text-gray-700 dark:text-gray-300">
                         Diversão garantida com shows, karaokê e eventos
                         especiais.
                       </p>
@@ -168,61 +173,18 @@ export function NavigationMenuHeader() {
           </NavigationMenuItem>
 
           {/* Sobre Nós */}
-          <NavigationMenuItem>
+          <NavigationMenuItem className="flex items-center">
             <NavigationMenuLink
               asChild
-              className={`${navigationMenuTriggerStyle()} bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors`}
+              className={`${navigationMenuTriggerStyle()} bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors`}
             >
               <Link href="/sobre" className="flex items-center space-x-2">
-                <Users className="w-4 h-4" />
-                <span>Sobre Nós</span>
+                <span className="flex items-center gap-2">
+                  <Users className="w-4 h-4 text-gray-900 dark:text-white" />
+                  Sobre Nós
+                </span>
               </Link>
             </NavigationMenuLink>
-          </NavigationMenuItem>
-
-          {/* Contato */}
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 data-[active]:bg-gray-800 data-[state=open]:bg-gray-800 transition-colors">
-              <Phone className="w-4 h-4 mr-2" />
-              Contato
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] bg-gray-900 border border-gray-800">
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-yellow-400 mb-3">
-                      Entre em Contato
-                    </h4>
-                    <div className="space-y-3">
-                      <Link
-                        href="/contato"
-                        className="flex items-center space-x-3 text-sm text-gray-300 hover:text-yellow-400 transition-colors"
-                      >
-                        <Phone className="w-4 h-4" />
-                        <span>(11) 99999-9999</span>
-                      </Link>
-                      <Link
-                        href="/localizacao"
-                        className="flex items-center space-x-3 text-sm text-gray-300 hover:text-yellow-400 transition-colors"
-                      >
-                        <MapPin className="w-4 h-4" />
-                        <span>Como Chegar</span>
-                      </Link>
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-yellow-400 mb-3">
-                      Horário de Funcionamento
-                    </h4>
-                    <div className="text-sm text-gray-300 space-y-1">
-                      <p>Segunda a Quinta: 18:00 - 02:00</p>
-                      <p>Sexta e Sábado: 18:00 - 03:00</p>
-                      <p>Domingo: 18:00 - 01:00</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
@@ -252,12 +214,12 @@ function ListItem({
       <NavigationMenuLink asChild>
         <Link
           href={href}
-          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800 hover:text-yellow-400 text-gray-300"
+          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 text-gray-700 dark:text-gray-300"
         >
-          <div className="text-sm font-medium leading-none text-white">
+          <div className="text-sm font-medium leading-none text-gray-900 dark:text-white">
             {title}
           </div>
-          <p className="line-clamp-2 text-sm leading-snug text-gray-400">
+          <p className="line-clamp-2 text-sm leading-snug text-gray-600 dark:text-gray-400">
             {children}
           </p>
         </Link>

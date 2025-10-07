@@ -29,15 +29,15 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-sm">Rua Example, 123</p>
-                  <p className="text-sm">Bairro - Cidade, Estado</p>
-                  <p className="text-sm">CEP: 00000-000</p>
+                  <p className="text-sm">R. 89, 630</p>
+                  <p className="text-sm">St. Sul, Goiânia - GO</p>
+                  <p className="text-sm">CEP: 74093-140</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
-                <p className="text-sm">(11) 99999-9999</p>
+                <p className="text-sm">(62) 98108-6914</p>
               </div>
 
               <div className="flex items-center space-x-3">
