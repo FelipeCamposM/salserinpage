@@ -135,7 +135,7 @@ export function NavigationMenuHeader() {
 
           {/* Eventos */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 data-[active]:bg-gray-100 dark:data-[active]:bg-gray-800 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 transition-colors">
+            <NavigationMenuTrigger className="cursor-pointer bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 data-[active]:bg-gray-100 dark:data-[active]:bg-gray-800 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 transition-colors">
               <Calendar className="w-4 h-4 mr-2" />
               Eventos
             </NavigationMenuTrigger>
@@ -177,7 +177,7 @@ export function NavigationMenuHeader() {
               asChild
               className={`${navigationMenuTriggerStyle()} bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors`}
             >
-              <Link href="/sobre" className="flex items-center space-x-2">
+              <Link href="/sobre-nos" className="flex items-center space-x-2">
                 <span className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-gray-900 dark:text-white" />
                   Sobre Nós
