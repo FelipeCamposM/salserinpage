@@ -1,8 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
+import * as React from "react";
+import Link from "next/link";
+import {
+  Home,
+  UtensilsCrossed,
+  Calendar,
+  Users,
+  Phone,
+  MapPin,
+} from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,188 +18,229 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import Image from "next/image"
+} from "@/components/ui/navigation-menu";
+import Image from "next/image";
+import { ThemeToggle } from "@/components/theme-toggle";
 
-const components: { title: string; href: string; description: string }[] = [
+const cardapioItems: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    title: "Pratos Principais",
+    href: "/cardapio/pratos-principais",
+    description: "Deliciosos pratos tradicionais e especiais da casa.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: "Entradas",
+    href: "/cardapio/entradas",
+    description: "Aperitivos e entradas para começar bem a refeição.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    title: "Bebidas",
+    href: "/cardapio/bebidas",
+    description: "Drinks especiais, vinhos, cervejas e bebidas sem álcool.",
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: "Sobremesas",
+    href: "/cardapio/sobremesas",
+    description: "Doces irresistíveis para finalizar a experiência.",
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+    title: "Menu Executivo",
+    href: "/cardapio/menu-executivo",
+    description: "Opções rápidas e saborosas para o almoço.",
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    title: "Promoções",
+    href: "/cardapio/promocoes",
+    description: "Ofertas especiais e combos com preços imperdíveis.",
   },
-]   
+];
+
+const eventosItems: { title: string; href: string; description: string }[] = [
+  {
+    title: "Shows ao Vivo",
+    href: "/eventos/shows",
+    description: "Apresentações musicais com artistas locais e convidados.",
+  },
+  {
+    title: "Noite de Karaokê",
+    href: "/eventos/karaoke",
+    description: "Sextas-feiras de diversão com karaokê para toda família.",
+  },
+  {
+    title: "Eventos Privados",
+    href: "/eventos/privados",
+    description: "Comemorações, aniversários e confraternizações.",
+  },
+  {
+    title: "Agenda Completa",
+    href: "/eventos/agenda",
+    description: "Veja todos os eventos programados para este mês.",
+  },
+];
 
 export function NavigationMenuHeader() {
   return (
-    <NavigationMenu viewport={false} className="h-full text-white">
-    <Image src={"/salserin-logo.jpg"} alt="SalserinLogo" width={50} height={50}>
+    <div className="h-full flex items-center justify-between px-6 max-w-7xl mx-auto">
+      {/* Logo */}
+      <Link href="/" className="flex items-center space-x-3">
+        <Image
+          src="/salserin-logo.png"
+          alt="Salserin Logo"
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+      </Link>
 
-    </Image>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-yellow-400">Home</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link
-                    className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
-                    href="/"
+      {/* Navigation Menu */}
+      <NavigationMenu className="hidden md:flex">
+        <NavigationMenuList className="space-x-2">
+          {/* Home */}
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={`${navigationMenuTriggerStyle()} bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors`}
+            >
+              <Link href="/" className="flex items-center space-x-2">
+                <Home className="w-4 h-4" />
+                <span>Home</span>
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+
+          {/* Cardápio */}
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 data-[active]:bg-gray-800 data-[state=open]:bg-gray-800 transition-colors">
+              <UtensilsCrossed className="w-4 h-4 mr-2" />
+              Cardápio
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-gray-900 border border-gray-800">
+                {cardapioItems.map((item) => (
+                  <ListItem
+                    key={item.title}
+                    title={item.title}
+                    href={item.href}
                   >
-                    <div className="mt-4 mb-2 text-lg font-medium">
-                      shadcn/ui
+                    {item.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          {/* Eventos */}
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 data-[active]:bg-gray-800 data-[state=open]:bg-gray-800 transition-colors">
+              <Calendar className="w-4 h-4 mr-2" />
+              Eventos
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-2 bg-gray-900 border border-gray-800">
+                <li className="row-span-3">
+                  <NavigationMenuLink asChild>
+                    <Link
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-yellow-500/20 to-yellow-600/20 p-6 no-underline outline-none focus:shadow-md border border-yellow-400/20"
+                      href="/eventos"
+                    >
+                      <Calendar className="h-6 w-6 text-yellow-400" />
+                      <div className="mb-2 mt-4 text-lg font-medium text-white">
+                        Eventos Salserin
+                      </div>
+                      <p className="text-sm leading-tight text-gray-300">
+                        Diversão garantida com shows, karaokê e eventos
+                        especiais.
+                      </p>
+                    </Link>
+                  </NavigationMenuLink>
+                </li>
+                {eventosItems.map((item) => (
+                  <ListItem
+                    key={item.title}
+                    title={item.title}
+                    href={item.href}
+                  >
+                    {item.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          {/* Sobre Nós */}
+          <NavigationMenuItem>
+            <NavigationMenuLink
+              asChild
+              className={`${navigationMenuTriggerStyle()} bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 transition-colors`}
+            >
+              <Link href="/sobre" className="flex items-center space-x-2">
+                <Users className="w-4 h-4" />
+                <span>Sobre Nós</span>
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+
+          {/* Contato */}
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800 hover:text-yellow-400 data-[active]:bg-gray-800 data-[state=open]:bg-gray-800 transition-colors">
+              <Phone className="w-4 h-4 mr-2" />
+              Contato
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <div className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] bg-gray-900 border border-gray-800">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-sm font-medium text-yellow-400 mb-3">
+                      Entre em Contato
+                    </h4>
+                    <div className="space-y-3">
+                      <Link
+                        href="/contato"
+                        className="flex items-center space-x-3 text-sm text-gray-300 hover:text-yellow-400 transition-colors"
+                      >
+                        <Phone className="w-4 h-4" />
+                        <span>(11) 99999-9999</span>
+                      </Link>
+                      <Link
+                        href="/localizacao"
+                        className="flex items-center space-x-3 text-sm text-gray-300 hover:text-yellow-400 transition-colors"
+                      >
+                        <MapPin className="w-4 h-4" />
+                        <span>Como Chegar</span>
+                      </Link>
                     </div>
-                    <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
-                    </p>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-yellow-400">Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Docs</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>List</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[300px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Components</div>
-                    <div className="text-muted-foreground">
-                      Browse all components in the library.
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-yellow-400 mb-3">
+                      Horário de Funcionamento
+                    </h4>
+                    <div className="text-sm text-gray-300 space-y-1">
+                      <p>Segunda a Quinta: 18:00 - 02:00</p>
+                      <p>Sexta e Sábado: 18:00 - 03:00</p>
+                      <p>Domingo: 18:00 - 01:00</p>
                     </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Documentation</div>
-                    <div className="text-muted-foreground">
-                      Learn how to use the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Blog</div>
-                    <div className="text-muted-foreground">
-                      Read our latest blog posts.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Components</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Documentation</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">Blocks</Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="flex-row items-center gap-2">
-                    <CircleHelpIcon />
-                    Backlog
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="flex-row items-center gap-2">
-                    <CircleIcon />
-                    To Do
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#" className="flex-row items-center gap-2">
-                    <CircleCheckIcon />
-                    Done
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
-  )
+                  </div>
+                </div>
+              </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      {/* Botões de Ação */}
+      <div className="flex items-center space-x-3">
+        <ThemeToggle />
+        <Link
+          href="/reservas"
+          className="bg-gray-900 dark:bg-yellow-400 text-white dark:text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-gray-800 dark:hover:bg-yellow-500 transition-colors"
+        >
+          Fazer Reserva
+        </Link>
+      </div>
+    </div>
+  );
 }
+
 function ListItem({
   title,
   children,
@@ -202,13 +250,18 @@ function ListItem({
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
+        <Link
+          href={href}
+          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800 hover:text-yellow-400 text-gray-300"
+        >
+          <div className="text-sm font-medium leading-none text-white">
+            {title}
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-gray-400">
             {children}
           </p>
         </Link>
       </NavigationMenuLink>
     </li>
-  )
+  );
 }
