@@ -112,9 +112,11 @@ export function NavigationMenuHeader() {
 
           {/* Cardápio */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 data-[active]:bg-gray-100 dark:data-[active]:bg-gray-800 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 transition-colors">
-              <UtensilsCrossed className="w-4 h-4 mr-2" />
-              Cardápio
+            <NavigationMenuTrigger className="cursor-pointer bg-transparent text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-yellow-600 dark:hover:text-yellow-400 data-[active]:bg-gray-100 dark:data-[active]:bg-gray-800 data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 transition-colors">
+              <Link href={"/cardapio"} className="flex items-center">
+                <UtensilsCrossed className="w-4 h-4 mr-2" />
+                Cardápio
+              </Link>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
