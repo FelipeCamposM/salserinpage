@@ -1,5 +1,9 @@
+"use client";
+
 import { Prato, CategoriaPrato } from "@/types/pratos";
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import { ChevronUp } from "lucide-react";
 
 const pratos: Prato[] = [
   // PETISCOS
@@ -9,7 +13,7 @@ const pratos: Prato[] = [
     preco: 20.0,
     descricao: "Batata rústica temperada e crocante",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/batata-simples.jpg",
+    imagem: "/comidas/batata-simples.jpg",
     ingredientes: ["batata", "temperos", "óleo"],
     tempoPreparo: 15,
     disponivel: true,
@@ -22,7 +26,7 @@ const pratos: Prato[] = [
     preco: 35.0,
     descricao: "Batata com cobertura especial da casa",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/batata-especial.jpg",
+    imagem: "/comidas/batata-especial.jpg",
     ingredientes: ["batata", "queijo", "bacon", "temperos especiais"],
     tempoPreparo: 20,
     disponivel: true,
@@ -35,7 +39,7 @@ const pratos: Prato[] = [
     preco: 35.0,
     descricao: "8 unidades de pastéis com recheio de carne e queijo",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/pastel-carne-queijo.jpg",
+    imagem: "/comidas/pastel-carne-queijo.jpg",
     ingredientes: ["massa", "carne", "queijo", "temperos"],
     tempoPreparo: 12,
     disponivel: true,
@@ -48,7 +52,7 @@ const pratos: Prato[] = [
     preco: 35.0,
     descricao: "8 unidades de pastéis com recheio de queijo e presunto",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/pastel-queijo-presunto.jpg",
+    imagem: "/comidas/pastel-presunto-queijo.jpg",
     ingredientes: ["massa", "queijo", "presunto", "temperos"],
     tempoPreparo: 12,
     disponivel: true,
@@ -61,7 +65,7 @@ const pratos: Prato[] = [
     preco: 32.0,
     descricao: "12 unidades de tulipinha de frango crocante",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/tulipinha.jpg",
+    imagem: "/comidas/tulipinha.jpg",
     ingredientes: ["frango", "temperos", "farinha"],
     tempoPreparo: 18,
     disponivel: true,
@@ -74,7 +78,7 @@ const pratos: Prato[] = [
     preco: 65.0,
     descricao: "Frango especial com molho supremo da casa",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/frango-supremo.jpg",
+    imagem: "/comidas/frango-supremo.jpg",
     ingredientes: ["frango", "molho supremo", "temperos especiais"],
     tempoPreparo: 25,
     disponivel: true,
@@ -87,7 +91,7 @@ const pratos: Prato[] = [
     preco: 38.0,
     descricao: "Torresmo crocante acompanhado de mandioca",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/torresmo-mandioca.jpg",
+    imagem: "/comidas/torresmo-mandioca.jpg",
     ingredientes: ["torresmo", "mandioca", "temperos"],
     tempoPreparo: 20,
     disponivel: true,
@@ -100,7 +104,7 @@ const pratos: Prato[] = [
     preco: 45.0,
     descricao: "Bolinhos crocantes recheados com linguiça",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/bolinho-linguica.jpg",
+    imagem: "/comidas/bolinho-linguica.jpg",
     ingredientes: ["linguiça", "massa", "temperos", "queijo"],
     tempoPreparo: 15,
     disponivel: true,
@@ -113,7 +117,7 @@ const pratos: Prato[] = [
     preco: 49.0,
     descricao: "Disquinhos de carne suculentos e temperados",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/disquinho-carne.jpg",
+    imagem: "/comidas/disquinho-carne.jpg",
     ingredientes: ["carne", "temperos especiais", "farinha"],
     tempoPreparo: 18,
     disponivel: true,
@@ -126,7 +130,7 @@ const pratos: Prato[] = [
     preco: 40.0,
     descricao: "Coração de frango no palito temperado",
     categoria: CategoriaPrato.PETISCO,
-    imagem: "/site-images/coracaozinho.jpg",
+    imagem: "/comidas/coracaozinho.jpg",
     ingredientes: ["coração de frango", "temperos", "palito"],
     tempoPreparo: 20,
     disponivel: true,
@@ -140,7 +144,7 @@ const pratos: Prato[] = [
     preco: 120.0,
     descricao: "Picanha grelhada na chapa com acompanhamentos",
     categoria: CategoriaPrato.CHAPA,
-    imagem: "/site-images/chapa-picanha.jpg",
+    imagem: "/comidas/chapa-picanha.jpg",
     ingredientes: ["picanha", "temperos", "acompanhamentos"],
     tempoPreparo: 30,
     disponivel: true,
@@ -154,7 +158,7 @@ const pratos: Prato[] = [
     preco: 25.0,
     descricao: "Hambúrguer tradicional com ingredientes frescos",
     categoria: CategoriaPrato.HAMBURGUER,
-    imagem: "/site-images/hamburguer-classico.jpg",
+    imagem: "/comidas/hamburguer-classico.jpg",
     ingredientes: ["carne", "pão", "alface", "tomate", "queijo"],
     tempoPreparo: 15,
     disponivel: true,
@@ -167,7 +171,7 @@ const pratos: Prato[] = [
     preco: 29.0,
     descricao: "Hambúrguer com bacon crocante e molho especial",
     categoria: CategoriaPrato.HAMBURGUER,
-    imagem: "/site-images/black-bacon.jpg",
+    imagem: "/comidas/black-bacon.jpg",
     ingredientes: ["carne", "bacon", "pão preto", "queijo", "molho especial"],
     tempoPreparo: 18,
     disponivel: true,
@@ -180,7 +184,7 @@ const pratos: Prato[] = [
     preco: 32.0,
     descricao: "Hambúrguer com molho agridoce e ingredientes especiais",
     categoria: CategoriaPrato.HAMBURGUER,
-    imagem: "/site-images/hamburguer-agridoce.jpg",
+    imagem: "/comidas/hamburguer-agridoce.jpg",
     ingredientes: ["carne", "molho agridoce", "pão", "queijo", "cebola"],
     tempoPreparo: 20,
     disponivel: true,
@@ -194,7 +198,7 @@ const pratos: Prato[] = [
     preco: 19.0,
     descricao: "Cerveja Corona gelada",
     categoria: CategoriaPrato.CERVEJA,
-    imagem: "/site-images/corona-600.jpg",
+    imagem: "/comidas/corona-600.jpg",
     ingredientes: ["cerveja corona"],
     tempoPreparo: 2,
     disponivel: true,
@@ -452,108 +456,214 @@ const pratos: Prato[] = [
 ];
 
 export default function GridPratos() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Controla a visibilidade do botão "voltar ao topo"
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  // Função para voltar ao topo
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // Categorias disponíveis no cardápio
+  const categorias = [
+    { key: CategoriaPrato.PETISCO, label: "Petiscos" },
+    { key: CategoriaPrato.CHAPA, label: "Chapas" },
+    { key: CategoriaPrato.HAMBURGUER, label: "Hambúrguers" },
+    { key: CategoriaPrato.CERVEJA, label: "Cervejas" },
+    { key: CategoriaPrato.CHOPP, label: "Chopp" },
+    { key: CategoriaPrato.CAIPIRINHA, label: "Caipirinhas" },
+    { key: CategoriaPrato.COPAO, label: "Copão" },
+    { key: CategoriaPrato.COMBO, label: "Combos" },
+    { key: CategoriaPrato.SEM_ALCOOL, label: "Sem Álcool" },
+  ];
+
+  // Função para agrupar pratos por categoria
+  const pratosPorCategoria = (categoria: CategoriaPrato) => {
+    return pratos.filter((prato) => prato.categoria === categoria);
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-      {pratos.map((prato) => (
-        <div
-          key={prato.id}
-          className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg"
+    <div className="w-full">
+      {/* Seções por categoria */}
+      <div className="space-y-12">
+        {categorias.map((categoria) => {
+          const pratosCategoria = pratosPorCategoria(categoria.key);
+          if (pratosCategoria.length === 0) return null;
+
+          return (
+            <section
+              key={categoria.key}
+              id={`categoria-${categoria.key}`}
+              className="scroll-mt-24"
+            >
+              <div className="mb-6">
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 text-center mb-2">
+                  {categoria.label}
+                </h2>
+                <div className="w-24 h-1 bg-orange-500 mx-auto rounded-full"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+                {pratosCategoria.map((prato) => (
+                  <div
+                    key={prato.id}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg"
+                  >
+                    {prato.imagem && (
+                      <Image
+                        src={prato.imagem}
+                        alt={prato.nome}
+                        width={400}
+                        height={200}
+                        className="w-full h-48 object-cover"
+                      />
+                    )}
+                    <div className="p-4">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                          {prato.nome}
+                        </h3>
+                        <span className="text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded-full">
+                          {prato.categoria.replace("_", " ").toUpperCase()}
+                        </span>
+                      </div>
+
+                      <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm">
+                        {prato.descricao}
+                      </p>
+
+                      <div className="flex justify-between items-center mb-3">
+                        <span className="text-2xl font-bold text-orange-600 dark:text-yellow-400">
+                          {prato.precoMinimo
+                            ? `A partir de R$ ${prato.precoMinimo
+                                .toFixed(2)
+                                .replace(".", ",")}`
+                            : `R$ ${prato.preco.toFixed(2).replace(".", ",")}`}
+                        </span>
+                        <div className="flex gap-1 items-center">
+                          {prato.vegetariano && (
+                            <span
+                              className="text-green-500 text-sm"
+                              title="Vegetariano"
+                            >
+                              🌱
+                            </span>
+                          )}
+                          {prato.vegano && (
+                            <span
+                              className="text-green-600 text-sm"
+                              title="Vegano"
+                            >
+                              🌿
+                            </span>
+                          )}
+                          {prato.teorAlcoolico && (
+                            <span
+                              className="text-red-500 text-sm"
+                              title="Contém álcool"
+                            >
+                              🍺
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                        <div className="flex justify-between">
+                          <span>Preparo:</span>
+                          <span>{prato.tempoPreparo} min</span>
+                        </div>
+
+                        {prato.volume && (
+                          <div className="flex justify-between">
+                            <span>Volume:</span>
+                            <span>{prato.volume}</span>
+                          </div>
+                        )}
+
+                        {prato.teorAlcoolico && (
+                          <div className="flex justify-between">
+                            <span>Álcool:</span>
+                            <span>{prato.teorAlcoolico}%</span>
+                          </div>
+                        )}
+
+                        {prato.itensInclusos && (
+                          <div className="mt-2">
+                            <span className="font-medium">Incluso:</span>
+                            <ul className="text-xs mt-1 space-y-1">
+                              {prato.itensInclusos.map((item, index) => (
+                                <li key={index} className="flex items-center">
+                                  <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+
+                      {!prato.disponivel && (
+                        <div className="mt-3 text-center">
+                          <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">
+                            Indisponível
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      {/* Botão voltar ao topo */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-orange-500 hover:bg-orange-600 text-white shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center"
+          aria-label="Voltar ao topo"
         >
-          {prato.imagem && (
-            <Image
-              src={prato.imagem}
-              alt={prato.nome}
-              width={400}
-              height={200}
-              className="w-full h-48 object-cover"
-            />
-          )}
-          <div className="p-4">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
-                {prato.nome}
-              </h3>
-              <span className="text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded-full">
-                {prato.categoria.replace("_", " ").toUpperCase()}
-              </span>
-            </div>
-
-            <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm">
-              {prato.descricao}
-            </p>
-
-            <div className="flex justify-between items-center mb-3">
-              <span className="text-2xl font-bold text-orange-600 dark:text-yellow-400">
-                {prato.precoMinimo
-                  ? `A partir de R$ ${prato.precoMinimo
-                      .toFixed(2)
-                      .replace(".", ",")}`
-                  : `R$ ${prato.preco.toFixed(2).replace(".", ",")}`}
-              </span>
-              <div className="flex gap-1 items-center">
-                {prato.vegetariano && (
-                  <span className="text-green-500 text-sm" title="Vegetariano">
-                    🌱
-                  </span>
-                )}
-                {prato.vegano && (
-                  <span className="text-green-600 text-sm" title="Vegano">
-                    🌿
-                  </span>
-                )}
-                {prato.teorAlcoolico && (
-                  <span className="text-red-500 text-sm" title="Contém álcool">
-                    🍺
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
-              <div className="flex justify-between">
-                <span>Preparo:</span>
-                <span>{prato.tempoPreparo} min</span>
-              </div>
-
-              {prato.volume && (
-                <div className="flex justify-between">
-                  <span>Volume:</span>
-                  <span>{prato.volume}</span>
-                </div>
-              )}
-
-              {prato.teorAlcoolico && (
-                <div className="flex justify-between">
-                  <span>Álcool:</span>
-                  <span>{prato.teorAlcoolico}%</span>
-                </div>
-              )}
-
-              {prato.itensInclusos && (
-                <div className="mt-2">
-                  <span className="font-medium">Incluso:</span>
-                  <ul className="text-xs mt-1 space-y-1">
-                    {prato.itensInclusos.map((item, index) => (
-                      <li key={index} className="flex items-center">
-                        <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {!prato.disponivel && (
-              <div className="mt-3 text-center">
-                <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">
-                  Indisponível
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
+          <ChevronUp className="h-6 w-6" />
+        </button>
+      )}
     </div>
   );
 }
+
+// Exporta as funções e dados para serem usados pela navegação
+export { pratos };
+export const categorias = [
+  { key: CategoriaPrato.PETISCO, label: "Petiscos" },
+  { key: CategoriaPrato.CHAPA, label: "Chapas" },
+  { key: CategoriaPrato.HAMBURGUER, label: "Hambúrguers" },
+  { key: CategoriaPrato.CERVEJA, label: "Cervejas" },
+  { key: CategoriaPrato.CHOPP, label: "Chopp" },
+  { key: CategoriaPrato.CAIPIRINHA, label: "Caipirinhas" },
+  { key: CategoriaPrato.COPAO, label: "Copão" },
+  { key: CategoriaPrato.COMBO, label: "Combos" },
+  { key: CategoriaPrato.SEM_ALCOOL, label: "Sem Álcool" },
+];
+
+export const pratosPorCategoria = (categoria: CategoriaPrato) => {
+  return pratos.filter((prato) => prato.categoria === categoria);
+};

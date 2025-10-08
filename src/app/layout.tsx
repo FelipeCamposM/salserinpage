@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${montserrat.variable} font-sans antialiased`}>
+      <body className={`${montserrat.variable} font-sans antialiased cz-shortcut-listen="true"`}>
         <ThemeProvider defaultTheme="dark">
           <Header />
           {children}
