@@ -2,14 +2,15 @@ import { Prato, CategoriaPrato } from "@/types/pratos";
 import Image from "next/image";
 
 const pratos: Prato[] = [
+  // PETISCOS
   {
     id: "1",
-    nome: "Beringela Grelhada",
-    preco: 19.9,
-    descricao: "Deliciosa beringela grelhada com temperos especiais",
-    categoria: CategoriaPrato.PRATO_PRINCIPAL,
-    imagem: "/images/beringela.jpg",
-    ingredientes: ["beringela", "azeite", "alho", "ervas finas"],
+    nome: "Batata Simples",
+    preco: 20.0,
+    descricao: "Batata rústica temperada e crocante",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/batata-simples.jpg",
+    ingredientes: ["batata", "temperos", "óleo"],
     tempoPreparo: 15,
     disponivel: true,
     vegetariano: true,
@@ -17,12 +18,12 @@ const pratos: Prato[] = [
   },
   {
     id: "2",
-    nome: "Salmão Grelhado",
-    preco: 32.9,
-    descricao: "Salmão fresco grelhado com legumes da estação",
-    categoria: CategoriaPrato.PRATO_PRINCIPAL,
-    imagem: "/images/salmao.jpg",
-    ingredientes: ["salmão", "brócolis", "cenoura", "limão", "azeite"],
+    nome: "Batata Especial",
+    preco: 35.0,
+    descricao: "Batata com cobertura especial da casa",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/batata-especial.jpg",
+    ingredientes: ["batata", "queijo", "bacon", "temperos especiais"],
     tempoPreparo: 20,
     disponivel: true,
     vegetariano: false,
@@ -30,38 +31,38 @@ const pratos: Prato[] = [
   },
   {
     id: "3",
-    nome: "Salada Caesar",
-    preco: 16.5,
-    descricao: "Salada clássica com alface, croutons e molho caesar",
-    categoria: CategoriaPrato.SALADA,
-    imagem: "/images/caesar.jpg",
-    ingredientes: ["alface romana", "parmesão", "croutons", "molho caesar"],
-    tempoPreparo: 8,
+    nome: "Pastel de Carne e Queijo 8Und",
+    preco: 35.0,
+    descricao: "8 unidades de pastéis com recheio de carne e queijo",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/pastel-carne-queijo.jpg",
+    ingredientes: ["massa", "carne", "queijo", "temperos"],
+    tempoPreparo: 12,
     disponivel: true,
-    vegetariano: true,
+    vegetariano: false,
     vegano: false,
   },
   {
     id: "4",
-    nome: "Pizza Margherita",
-    preco: 24.9,
-    descricao: "Pizza tradicional com molho de tomate, mussarela e manjericão",
-    categoria: CategoriaPrato.PIZZA,
-    imagem: "/images/margherita.jpg",
-    ingredientes: ["massa", "molho de tomate", "mussarela", "manjericão"],
+    nome: "Pastel de Queijo e Presunto 8Und",
+    preco: 35.0,
+    descricao: "8 unidades de pastéis com recheio de queijo e presunto",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/pastel-queijo-presunto.jpg",
+    ingredientes: ["massa", "queijo", "presunto", "temperos"],
     tempoPreparo: 12,
     disponivel: true,
-    vegetariano: true,
+    vegetariano: false,
     vegano: false,
   },
   {
     id: "5",
-    nome: "Hambúrguer Artesanal",
-    preco: 28.5,
-    descricao: "Hambúrguer de carne bovina com queijo cheddar e bacon",
-    categoria: CategoriaPrato.HAMBURGUER,
-    imagem: "/images/hamburguer.jpg",
-    ingredientes: ["carne bovina", "pão brioche", "cheddar", "bacon", "alface"],
+    nome: "Tulipinha 12Und",
+    preco: 32.0,
+    descricao: "12 unidades de tulipinha de frango crocante",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/tulipinha.jpg",
+    ingredientes: ["frango", "temperos", "farinha"],
     tempoPreparo: 18,
     disponivel: true,
     vegetariano: false,
@@ -69,67 +70,384 @@ const pratos: Prato[] = [
   },
   {
     id: "6",
-    nome: "Espaguete à Carbonara",
-    preco: 22.9,
-    descricao: "Massa italiana com molho cremoso, bacon e parmesão",
-    categoria: CategoriaPrato.MASSA,
-    imagem: "/images/carbonara.jpg",
-    ingredientes: [
-      "espaguete",
-      "bacon",
-      "ovos",
-      "parmesão",
-      "pimenta do reino",
-    ],
-    tempoPreparo: 15,
+    nome: "Frango Supremo",
+    preco: 65.0,
+    descricao: "Frango especial com molho supremo da casa",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/frango-supremo.jpg",
+    ingredientes: ["frango", "molho supremo", "temperos especiais"],
+    tempoPreparo: 25,
     disponivel: true,
     vegetariano: false,
     vegano: false,
   },
   {
     id: "7",
-    nome: "Bruschetta Italiana",
-    preco: 12.9,
-    descricao: "Entrada tradicional com tomate, manjericão e queijo",
-    categoria: CategoriaPrato.ENTRADA,
-    imagem: "/images/bruschetta.jpg",
-    ingredientes: ["pão italiano", "tomate", "manjericão", "alho", "azeite"],
-    tempoPreparo: 10,
+    nome: "Torresmo com Mandioca",
+    preco: 38.0,
+    descricao: "Torresmo crocante acompanhado de mandioca",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/torresmo-mandioca.jpg",
+    ingredientes: ["torresmo", "mandioca", "temperos"],
+    tempoPreparo: 20,
     disponivel: true,
-    vegetariano: true,
+    vegetariano: false,
     vegano: false,
   },
   {
     id: "8",
-    nome: "Tiramisù",
-    preco: 14.5,
-    descricao: "Sobremesa italiana com café, mascarpone e cacau",
-    categoria: CategoriaPrato.SOBREMESA,
-    imagem: "/images/tiramisu.jpg",
-    ingredientes: [
-      "mascarpone",
-      "café",
-      "biscoito champagne",
-      "cacau",
-      "açúcar",
-    ],
-    tempoPreparo: 5,
+    nome: "Bolinho de Linguiça Recheado",
+    preco: 45.0,
+    descricao: "Bolinhos crocantes recheados com linguiça",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/bolinho-linguica.jpg",
+    ingredientes: ["linguiça", "massa", "temperos", "queijo"],
+    tempoPreparo: 15,
     disponivel: true,
-    vegetariano: true,
+    vegetariano: false,
     vegano: false,
   },
   {
     id: "9",
-    nome: "Suco de Laranja Natural",
-    preco: 8.9,
-    descricao: "Suco fresco de laranja espremida na hora",
-    categoria: CategoriaPrato.BEBIDA,
-    imagem: "/images/suco-laranja.jpg",
-    ingredientes: ["laranja", "gelo"],
+    nome: "Disquinho de Carne",
+    preco: 49.0,
+    descricao: "Disquinhos de carne suculentos e temperados",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/disquinho-carne.jpg",
+    ingredientes: ["carne", "temperos especiais", "farinha"],
+    tempoPreparo: 18,
+    disponivel: true,
+    vegetariano: false,
+    vegano: false,
+  },
+  {
+    id: "10",
+    nome: "Coraçãozinho A Palito",
+    preco: 40.0,
+    descricao: "Coração de frango no palito temperado",
+    categoria: CategoriaPrato.PETISCO,
+    imagem: "/site-images/coracaozinho.jpg",
+    ingredientes: ["coração de frango", "temperos", "palito"],
+    tempoPreparo: 20,
+    disponivel: true,
+    vegetariano: false,
+    vegano: false,
+  },
+  // CHAPAS
+  {
+    id: "11",
+    nome: "Chapa Picanha",
+    preco: 120.0,
+    descricao: "Picanha grelhada na chapa com acompanhamentos",
+    categoria: CategoriaPrato.CHAPA,
+    imagem: "/site-images/chapa-picanha.jpg",
+    ingredientes: ["picanha", "temperos", "acompanhamentos"],
+    tempoPreparo: 30,
+    disponivel: true,
+    vegetariano: false,
+    vegano: false,
+  },
+  // HAMBÚRGUERS
+  {
+    id: "12",
+    nome: "Clássico",
+    preco: 25.0,
+    descricao: "Hambúrguer tradicional com ingredientes frescos",
+    categoria: CategoriaPrato.HAMBURGUER,
+    imagem: "/site-images/hamburguer-classico.jpg",
+    ingredientes: ["carne", "pão", "alface", "tomate", "queijo"],
+    tempoPreparo: 15,
+    disponivel: true,
+    vegetariano: false,
+    vegano: false,
+  },
+  {
+    id: "13",
+    nome: "Black Bacon",
+    preco: 29.0,
+    descricao: "Hambúrguer com bacon crocante e molho especial",
+    categoria: CategoriaPrato.HAMBURGUER,
+    imagem: "/site-images/black-bacon.jpg",
+    ingredientes: ["carne", "bacon", "pão preto", "queijo", "molho especial"],
+    tempoPreparo: 18,
+    disponivel: true,
+    vegetariano: false,
+    vegano: false,
+  },
+  {
+    id: "14",
+    nome: "Agridoce",
+    preco: 32.0,
+    descricao: "Hambúrguer com molho agridoce e ingredientes especiais",
+    categoria: CategoriaPrato.HAMBURGUER,
+    imagem: "/site-images/hamburguer-agridoce.jpg",
+    ingredientes: ["carne", "molho agridoce", "pão", "queijo", "cebola"],
+    tempoPreparo: 20,
+    disponivel: true,
+    vegetariano: false,
+    vegano: false,
+  },
+  // CERVEJAS
+  {
+    id: "15",
+    nome: "Corona 600ml",
+    preco: 19.0,
+    descricao: "Cerveja Corona gelada",
+    categoria: CategoriaPrato.CERVEJA,
+    imagem: "/site-images/corona-600.jpg",
+    ingredientes: ["cerveja corona"],
+    tempoPreparo: 2,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "600ml",
+    temperatura: "gelada",
+    teorAlcoolico: 4.5,
+  },
+  {
+    id: "16",
+    nome: "Spaten",
+    preco: 17.0,
+    descricao: "Cerveja Spaten premium",
+    categoria: CategoriaPrato.CERVEJA,
+    imagem: "/site-images/spaten.jpg",
+    ingredientes: ["cerveja spaten"],
+    tempoPreparo: 2,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "600ml",
+    temperatura: "gelada",
+    teorAlcoolico: 5.2,
+  },
+  {
+    id: "17",
+    nome: "Stella Artois",
+    preco: 18.0,
+    descricao: "Cerveja Stella Artois premium",
+    categoria: CategoriaPrato.CERVEJA,
+    imagem: "/site-images/stella-artois.jpg",
+    ingredientes: ["cerveja stella artois"],
+    tempoPreparo: 2,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "600ml",
+    temperatura: "gelada",
+    teorAlcoolico: 5.0,
+  },
+  {
+    id: "18",
+    nome: "Colorado",
+    preco: 26.0,
+    descricao: "Cerveja artesanal Colorado",
+    categoria: CategoriaPrato.CERVEJA,
+    imagem: "/site-images/colorado.jpg",
+    ingredientes: ["cerveja colorado"],
+    tempoPreparo: 2,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "600ml",
+    temperatura: "gelada",
+    teorAlcoolico: 4.8,
+  },
+  // CHOPP
+  {
+    id: "19",
+    nome: "Chopp Brahma 330ml",
+    preco: 13.0,
+    descricao: "Chopp Brahma gelado e cremoso",
+    categoria: CategoriaPrato.CHOPP,
+    imagem: "/site-images/chopp-brahma-330.jpg",
+    ingredientes: ["chopp brahma"],
     tempoPreparo: 3,
     disponivel: true,
     vegetariano: true,
     vegano: true,
+    volume: "330ml",
+    temperatura: "gelada",
+    teorAlcoolico: 4.8,
+  },
+  {
+    id: "20",
+    nome: "Chopp Brahma 550ml",
+    preco: 18.0,
+    descricao: "Chopp Brahma gelado e cremoso",
+    categoria: CategoriaPrato.CHOPP,
+    imagem: "/site-images/chopp-brahma-550.jpg",
+    ingredientes: ["chopp brahma"],
+    tempoPreparo: 3,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "550ml",
+    temperatura: "gelada",
+    teorAlcoolico: 4.8,
+  },
+  // CAIPIRINHAS
+  {
+    id: "21",
+    nome: "Caipirinha Limão",
+    preco: 23.0,
+    descricao: "Caipirinha clássica de limão com cachaça",
+    categoria: CategoriaPrato.CAIPIRINHA,
+    imagem: "/site-images/caipirinha-limao.jpg",
+    ingredientes: ["cachaça", "limão", "açúcar", "gelo"],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 38.0,
+  },
+  {
+    id: "22",
+    nome: "Caipirinha Uva",
+    preco: 23.0,
+    descricao: "Caipirinha refrescante de uva",
+    categoria: CategoriaPrato.CAIPIRINHA,
+    imagem: "/site-images/caipirinha-uva.jpg",
+    ingredientes: ["cachaça", "uva", "açúcar", "gelo"],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 38.0,
+  },
+  {
+    id: "23",
+    nome: "Caipirinha Açaí",
+    preco: 23.0,
+    descricao: "Caipirinha exótica de açaí",
+    categoria: CategoriaPrato.CAIPIRINHA,
+    imagem: "/site-images/caipirinha-acai.jpg",
+    ingredientes: ["cachaça", "açaí", "açúcar", "gelo"],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 38.0,
+  },
+  {
+    id: "24",
+    nome: "Caipirinha Morango",
+    preco: 23.0,
+    descricao: "Caipirinha doce de morango",
+    categoria: CategoriaPrato.CAIPIRINHA,
+    imagem: "/site-images/caipirinha-morango.jpg",
+    ingredientes: ["cachaça", "morango", "açúcar", "gelo"],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 38.0,
+  },
+  // CAIPIRAÇÃO SABORES
+  {
+    id: "25",
+    nome: "Caipirão Morango",
+    preco: 26.0,
+    descricao: "Cachaça Sagatiba, morango e xarope de açúcar",
+    categoria: CategoriaPrato.CAIPIRINHA,
+    imagem: "/site-images/caipirao-morango.jpg",
+    ingredientes: ["cachaça sagatiba", "morango", "xarope de açúcar"],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 38.0,
+  },
+  // DRINKS COPÃO
+  {
+    id: "26",
+    nome: "N1 - Copão",
+    preco: 19.0,
+    descricao: "Vodka nacional, gelo de morango e energético tradicional",
+    categoria: CategoriaPrato.COPAO,
+    imagem: "/site-images/copao-n1.jpg",
+    ingredientes: [
+      "vodka nacional",
+      "gelo de morango",
+      "energético tradicional",
+    ],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 40.0,
+  },
+  {
+    id: "27",
+    nome: "N10 - Copão Premium",
+    preco: 22.0,
+    descricao: "Vodka premium, gelo de côco e energético tradicional",
+    categoria: CategoriaPrato.COPAO,
+    imagem: "/site-images/copao-n10.jpg",
+    ingredientes: ["vodka premium", "gelo de côco", "energético tradicional"],
+    tempoPreparo: 5,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    teorAlcoolico: 40.0,
+  },
+  // COMBOS
+  {
+    id: "28",
+    nome: "Combo Absolut",
+    preco: 320.0,
+    descricao: "Combo premium com vodka Absolut",
+    categoria: CategoriaPrato.COMBO,
+    imagem: "/site-images/combo-absolut.jpg",
+    ingredientes: ["vodka absolut", "energético", "gelo", "acompanhamentos"],
+    tempoPreparo: 10,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    itensInclusos: ["1 garrafa Absolut", "energéticos", "gelo", "petiscos"],
+  },
+  {
+    id: "29",
+    nome: "Combo Gin",
+    preco: 250.0,
+    descricao: "Combo especial com gin premium",
+    categoria: CategoriaPrato.COMBO,
+    imagem: "/site-images/combo-gin.jpg",
+    ingredientes: ["gin", "tônica", "gelo", "acompanhamentos"],
+    tempoPreparo: 10,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    precoMinimo: 250.0,
+    itensInclusos: ["1 garrafa gin", "tônicas", "gelo", "petiscos"],
+  },
+  // SEM ÁLCOOL
+  {
+    id: "30",
+    nome: "Água Sem Gás",
+    preco: 4.5,
+    descricao: "Água mineral natural sem gás",
+    categoria: CategoriaPrato.SEM_ALCOOL,
+    imagem: "/site-images/agua-sem-gas.jpg",
+    ingredientes: ["água mineral"],
+    tempoPreparo: 1,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "500ml",
+  },
+  {
+    id: "31",
+    nome: "Água Com Gás",
+    preco: 7.0,
+    descricao: "Água mineral com gás gelada",
+    categoria: CategoriaPrato.SEM_ALCOOL,
+    imagem: "/site-images/agua-com-gas.jpg",
+    ingredientes: ["água mineral com gás"],
+    tempoPreparo: 1,
+    disponivel: true,
+    vegetariano: true,
+    vegano: true,
+    volume: "500ml",
   },
 ];
 
@@ -139,7 +457,7 @@ export default function GridPratos() {
       {pratos.map((prato) => (
         <div
           key={prato.id}
-          className="bg-white rounded-lg shadow-md overflow-hidden"
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg"
         >
           {prato.imagem && (
             <Image
@@ -151,24 +469,88 @@ export default function GridPratos() {
             />
           )}
           <div className="p-4">
-            <h3 className="text-xl font-semibold mb-2">{prato.nome}</h3>
-            <p className="text-gray-600 mb-3">{prato.descricao}</p>
-            <div className="flex justify-between items-center">
-              <span className="text-2xl font-bold text-green-600">
-                R$ {prato.preco.toFixed(2).replace(".", ",")}
+            <div className="flex justify-between items-start mb-2">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                {prato.nome}
+              </h3>
+              <span className="text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded-full">
+                {prato.categoria.replace("_", " ").toUpperCase()}
               </span>
-              <div className="flex gap-1">
+            </div>
+
+            <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm">
+              {prato.descricao}
+            </p>
+
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-2xl font-bold text-orange-600 dark:text-yellow-400">
+                {prato.precoMinimo
+                  ? `A partir de R$ ${prato.precoMinimo
+                      .toFixed(2)
+                      .replace(".", ",")}`
+                  : `R$ ${prato.preco.toFixed(2).replace(".", ",")}`}
+              </span>
+              <div className="flex gap-1 items-center">
                 {prato.vegetariano && (
-                  <span className="text-green-500 text-sm">🌱</span>
+                  <span className="text-green-500 text-sm" title="Vegetariano">
+                    🌱
+                  </span>
                 )}
                 {prato.vegano && (
-                  <span className="text-green-600 text-sm">🌿</span>
+                  <span className="text-green-600 text-sm" title="Vegano">
+                    🌿
+                  </span>
+                )}
+                {prato.teorAlcoolico && (
+                  <span className="text-red-500 text-sm" title="Contém álcool">
+                    🍺
+                  </span>
                 )}
               </div>
             </div>
-            <p className="text-sm text-gray-500 mt-2">
-              Tempo de preparo: {prato.tempoPreparo} min
-            </p>
+
+            <div className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+              <div className="flex justify-between">
+                <span>Preparo:</span>
+                <span>{prato.tempoPreparo} min</span>
+              </div>
+
+              {prato.volume && (
+                <div className="flex justify-between">
+                  <span>Volume:</span>
+                  <span>{prato.volume}</span>
+                </div>
+              )}
+
+              {prato.teorAlcoolico && (
+                <div className="flex justify-between">
+                  <span>Álcool:</span>
+                  <span>{prato.teorAlcoolico}%</span>
+                </div>
+              )}
+
+              {prato.itensInclusos && (
+                <div className="mt-2">
+                  <span className="font-medium">Incluso:</span>
+                  <ul className="text-xs mt-1 space-y-1">
+                    {prato.itensInclusos.map((item, index) => (
+                      <li key={index} className="flex items-center">
+                        <span className="w-1 h-1 bg-orange-500 rounded-full mr-2"></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {!prato.disponivel && (
+              <div className="mt-3 text-center">
+                <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm">
+                  Indisponível
+                </span>
+              </div>
+            )}
           </div>
         </div>
       ))}

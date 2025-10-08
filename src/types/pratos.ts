@@ -28,19 +28,26 @@ export interface Prato {
   vegetariano?: boolean;
   vegano?: boolean;
   semGluten?: boolean;
+  // Propriedades específicas para bebidas
+  teorAlcoolico?: number; // porcentagem de álcool
+  volume?: string; // ex: "600ml", "550ml"
+  temperatura?: "gelada" | "ambiente" | "quente";
+  // Para combos
+  itensInclusos?: string[];
+  precoMinimo?: number; // para "A partir de:"
 }
 
 export enum CategoriaPrato {
-  ENTRADA = "entrada",
-  PRATO_PRINCIPAL = "prato_principal",
-  SOBREMESA = "sobremesa",
-  BEBIDA = "bebida",
-  LANCHE = "lanche",
-  SALADA = "salada",
-  PIZZA = "pizza",
+  PETISCO = "petisco",
+  CHAPA = "chapa",
   HAMBURGUER = "hamburguer",
-  MASSA = "massa",
-  GRELHADOS = "grelhados",
+  CERVEJA = "cerveja",
+  CHOPP = "chopp",
+  CAIPIRINHA = "caipirinha",
+  COPAO = "copao",
+  DOSE = "dose",
+  COMBO = "combo",
+  SEM_ALCOOL = "sem_alcool",
 }
 
 export type FiltrosPrato = {
@@ -52,6 +59,9 @@ export type FiltrosPrato = {
   semGluten?: boolean;
   disponivel?: boolean;
   busca?: string;
+  comAlcool?: boolean;
+  semAlcool?: boolean;
+  volume?: string;
 };
 
 export type CriarPrato = Omit<Prato, "id" | "avaliacoes">;
